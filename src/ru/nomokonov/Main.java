@@ -6,6 +6,19 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+
+        //test 2.4.3
+        String[] roles ={
+        "Городничий", "Аммос Федорович", "Артемий Филиппович",
+        "Лука Лукич"};
+        String[] testLines = {"Городничий: Я пригласил вас, господа, с тем, чтобы сообщить вам пренеприятное известие: к нам едет ревизор.",
+        "Аммос Федорович: Как ревизор?", "Артемий Филиппович: Как ревизор?",
+        "Городничий: Ревизор из Петербурга, инкогнито. И еще с секретным предписаньем.",
+        "Аммос Федорович: Вот те на!",
+                "Артемий Филиппович: Вот не было заботы, так подай!",
+                "Лука Лукич: Господи боже! еще и с секретным предписаньем!"};
+        System.out.println(printTextPerRole(roles,testLines));
+        System.exit(0);
         //test 2.4.2
         int[] a1 = {0,1,2,2,5,9,10};
         int[] a2 = {2,3,5,11,12};
@@ -62,6 +75,26 @@ public class Main {
         }
 
     }
+
+    public static String printTextPerRole(String[] roles, String[] textLines) {
+        StringBuilder res;
+        res =new StringBuilder();
+        for (int i = 0; i < roles.length; i++) {
+            res.append(roles[i]);
+            res.append(":\n");
+            for (int j = 0; j < textLines.length; j++) {
+                if ( textLines[j].startsWith(roles[i]+":")){
+                    res.append(j+1);
+                    res.append(")");
+                    res.append(textLines[j].replaceFirst(roles[i]+":",""));
+                    res.append("\n");
+                }
+            }
+            res.append("\n");
+        }
+        return res.toString();
+    }
+
 
     public static int[] mergeArrays(int[] a1, int[] a2) {
         int[] res = new int[a1.length+a2.length];
