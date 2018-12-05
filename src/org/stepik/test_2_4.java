@@ -24,7 +24,9 @@ public class test_2_4 {
 
         //test 2.4.1
         System.out.println("test 2.4.1");
-        System.out.println("10! = "+ factorial(BigInteger.valueOf(10)));
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println("10! = "+ factorial(10));
+        System.out.println("17! = "+ factorial(17));
     }
 
     public static String printTextPerRole(String[] roles, String[] textLines) {
@@ -89,9 +91,25 @@ public class test_2_4 {
 //        return res;
 //    }
 
-    public static BigInteger factorial(BigInteger value){
-        if ( value.equals(BigInteger.ONE))  return BigInteger.ONE;
-        return  value.multiply (factorial(value.subtract(BigInteger.ONE)));
+
+    public static BigInteger factorial(int value){
+        if (  value ==1 )  return BigInteger.ONE;
+        BigInteger n = BigInteger.valueOf(value);
+        return   n.multiply ( factorial(value-1) );
     }
+//    public static BigInteger factorial(int value){
+//        BigInteger n = BigInteger.valueOf(value);
+//        if (  n.equals(BigInteger.ONE))  return BigInteger.ONE;
+//        return   n.multiply (Fact2(n.subtract(BigInteger.ONE)));
+//    }
+//    public static BigInteger Fact2(BigInteger value) {
+//        if (  value.equals(BigInteger.ONE))  return BigInteger.ONE;
+//        return   value.multiply (Fact2(value.subtract(BigInteger.ONE)));
+//    }
+
+//    public static int factorial(int value){
+//        if (  value==1)  return 1;
+//        return   value * (factorial(value-1));
+//    }
 
 }
