@@ -40,7 +40,7 @@ public class test_2_4 {
                     res.append(j + 1);
                     res.append(")");
                     res.append(textLines[j].replaceFirst(roles[i] + ":", ""));
-                    res.append("\n");
+                res.append("\n");
                 }
             }
             res.append("\n");
