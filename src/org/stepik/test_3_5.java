@@ -1,5 +1,6 @@
 package org.stepik;
 
+import java.nio.charset.StandardCharsets;
 import java.util.function.DoubleUnaryOperator;
 
 public class test_3_5 {
@@ -7,6 +8,20 @@ public class test_3_5 {
         System.out.println(integrate(x -> 1, 0, 10));//10.0
         System.out.println(integrate(x -> x + 2, 0, 10));//70.0
         System.out.println(integrate( x -> Math.sin(x) / x , 1, 5));//0.603848
+
+        //3.5.2
+
+        byte[] example = "abc".getBytes(StandardCharsets.US_ASCII);
+        CharSequence answer = new AsciiCharSequence(example);
+        System.out.println("Последовательность - " + answer.toString());//Hello!
+        System.out.println("Размер её - " + answer.length());//6
+        System.out.println("Символ под № 1 - " + answer.charAt(1));//e
+        System.out.println("Подпоследовательность - " + answer.subSequence(1, 5));//ello
+//проверка на нарушение инкапсуляции private поля
+        System.out.println(answer.toString());//Hello!
+        example[0] = 74;
+        System.out.println(answer.toString());//Hello!
+
     }
     public static double integrate(DoubleUnaryOperator f, double a, double b) {
         //ваш код
