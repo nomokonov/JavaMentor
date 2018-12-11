@@ -5,13 +5,17 @@ import java.util.function.DoubleUnaryOperator;
 
 public class test_3_5 {
     public static void main(String[] args) {
+
+        //test3.5.3
+
+
         System.out.println(integrate(x -> 1, 0, 10));//10.0
         System.out.println(integrate(x -> x + 2, 0, 10));//70.0
         System.out.println(integrate( x -> Math.sin(x) / x , 1, 5));//0.603848
 
         //3.5.2
 
-        byte[] example = "abc".getBytes(StandardCharsets.US_ASCII);
+        byte[] example = "Hello!".getBytes(StandardCharsets.US_ASCII);
         CharSequence answer = new AsciiCharSequence(example);
         System.out.println("Последовательность - " + answer.toString());//Hello!
         System.out.println("Размер её - " + answer.length());//6
@@ -40,5 +44,23 @@ public class test_3_5 {
         }
         result *= h;
         return result;
+    }
+
+
+    //test 3.5.3
+    abstract  class KeywordAnalyzer{
+        protected String[] getKeywords (){
+        }
+        protected Label getLabel(){
+        }
+    }
+    class SpamAnalyzer, NegativeTextAnalyzer и TooLongTextAnalyzer.
+
+
+    interface TextAnalyzer {
+        Label processText(String text);
+    }
+    enum Label {
+        SPAM, NEGATIVE_TEXT, TOO_LONG, OK
     }
 }
