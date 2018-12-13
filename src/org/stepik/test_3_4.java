@@ -21,7 +21,7 @@ public class test_3_4 {
 
 }
 
- final class ComplexNumber {
+final class ComplexNumber {
 
     private final double re;
     private final double im;
@@ -39,28 +39,29 @@ public class test_3_4 {
         return im;
     }
 
-     @Override
-     public boolean equals(Object o) {
-         if (this == o) return true;
-         if ( o instanceof ComplexNumber) {
-             ComplexNumber objNum = (ComplexNumber) o;
-             return Double.compare(objNum.re, re) == 0 &&
-                     Double.compare(objNum.im, im) == 0;
-         }
-         else return false;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if ( o == null) return false;
+        if ( getClass() != o.getClass()) return false;
 
-     }
+        ComplexNumber objNum = (ComplexNumber) o;
+        if (Double.compare(objNum.re, re) == 0 &&
+                Double.compare(objNum.im, im) == 0)  return true;
+        else return false;
+    }
 
-     @Override
-     public int hashCode() {
-         return Double.hashCode(re) +Double.hashCode(im);
-     }
- }
+    @Override
+    public int hashCode() {
 
- class Timer {
+        return Double.hashCode(re) +Double.hashCode(im);
+    }
+}
+
+class Timer {
     public long measureTime (Runnable runnable) {
         long startTime = System.currentTimeMillis();
         runnable.run();
         return System.currentTimeMillis() - startTime;
     }
- }
+}
