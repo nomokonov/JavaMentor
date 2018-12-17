@@ -97,8 +97,7 @@ public class test_3_5 {
         double h = 1e-6;
         int n = (int) ((b - a)/ h);         //h = (b - a) / n; //Шаг сетки
         double result = 0;
-        for (int i = 1; i <= n; i++)
-        {
+        for (int i = 1; i <= n; i++) {
             result += f.applyAsDouble(a + h * (i -1));
         }
         return result *= h;

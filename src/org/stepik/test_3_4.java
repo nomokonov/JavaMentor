@@ -14,11 +14,7 @@ public class test_3_4 {
         Timer timer = new Timer();
         long time = timer.measureTime(() -> new BigDecimal("1234567").pow(10000));
         System.out.println(time);
-
-
     }
-
-
 }
 
 final class ComplexNumber {
@@ -53,8 +49,11 @@ final class ComplexNumber {
 
     @Override
     public int hashCode() {
-
-        return Double.hashCode(re) +Double.hashCode(im);
+        final int prime = 31;
+        long result = 1;
+        result = prime * result +  Double.doubleToRawLongBits(re);
+        result = prime * result + Double.doubleToRawLongBits(im);
+        return (int)result;
     }
 }
 
