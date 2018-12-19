@@ -53,7 +53,7 @@ final class ComplexNumber {
         long result = 1;
         result = prime * result +  Double.doubleToRawLongBits(re);
         result = prime * result + Double.doubleToRawLongBits(im);
-        return (int)result;
+        return (int)(result ^ (result >>> 32));
     }
 }
 
