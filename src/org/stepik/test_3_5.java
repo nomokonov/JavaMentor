@@ -43,6 +43,7 @@ public class test_3_5 {
                 new TooLongTextAnalyzer(commentMaxLength),
                 new SpamAnalyzer(spamKeywords)
         };
+
         // тестовые комментарии
         String[] tests = new String[8];
         tests[0] = "This comment is so good.";                            // OK
@@ -103,7 +104,9 @@ public class test_3_5 {
         return result *= h;
     }
 
-
+    public static double sqrt(double x) {
+        return 0; // your implementation here
+    }
     //test 3.5.3
 
 
