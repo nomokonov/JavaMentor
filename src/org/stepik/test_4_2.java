@@ -38,25 +38,25 @@ public class test_4_2 {
 
 
 
-    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
-        // your implementation here
-        boolean noStop = true;
-        int count = 0;
-        while (noStop) {
-            try (RobotConnection robotConection = robotConnectionManager.getConnection()) {
-                robotConection.moveRobotTo(toX, toY);
-                noStop = false;
-            } catch (RobotConnectionException e) {
-
-                count++;
-                if (count >= 3) {
-                    noStop = false;
-                    throw new RobotConnectionException("Can not connect robot");
-
-                }
-            }
-        }
-    }
+//    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
+//        // your implementation here
+//        boolean noStop = true;
+//        int count = 0;
+//        while (noStop) {
+//            try (RobotConnection robotConection = robotConnectionManager.getConnection()) {
+//                robotConection.moveRobotTo(toX, toY);
+//                noStop = false;
+//            } catch (RobotConnectionException e) {
+//
+//                count++;
+//                if (count >= 3) {
+//                    noStop = false;
+//                    throw new RobotConnectionException("Can not connect robot");
+//
+//                }
+//            }
+//        }
+//    }
 
 
     }

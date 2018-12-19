@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class test_3_4 {
 
     public static void main(String[] args) {
+        ClassExample Ce = new ClassExample(10);
         ComplexNumber a = new ComplexNumber(1, 1);
         ComplexNumber b = new ComplexNumber(1, 1);
 
@@ -63,4 +64,6 @@ class Timer {
         runnable.run();
         return System.currentTimeMillis() - startTime;
     }
+
+
 }
