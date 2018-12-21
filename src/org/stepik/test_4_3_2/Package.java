@@ -1,6 +1,6 @@
 package org.stepik.test_4_3_2;
 
-public static class Package {
+public class Package {
     private final String content;
     private final int price;
 
