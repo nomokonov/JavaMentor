@@ -3,8 +3,12 @@ package org.stepik;
 public class test_4_2 {
 
     public static void main(String[] args) {
+        long start = System.nanoTime();
         System.out.println(getCallerClassAndMethodName());
         anotherMethod();
+        long finish = System.nanoTime();
+        long timeConsumedMillis = finish - start;
+        System.out.println(timeConsumedMillis);
     }
 
     private static void anotherMethod() {
@@ -14,28 +18,20 @@ public class test_4_2 {
     public static String getCallerClassAndMethodName() {
         // ...
 //        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-//        String message = "";
-//        if(stackTraceElements.length >= 3) {
-//            StackTraceElement element = stackTraceElements[2];
-//            String className = element.getClassName();
-//            String methodName = element.getMethodName();
-//            message = className + "#" + methodName;
+//        try {
+//            return stackTraceElements[3].getClassName() + "#" + stackTraceElements[3].getMethodName();
+//        } catch (Exception e) {
+//            return null;
 //        }
-//        for (StackTraceElement st: stackTraceElements ) {
-//            System.out.println( st.);
-//        }
-        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-        try {
-            StackTraceElement element = stackTraceElements[3];
-            return  element.getClassName() + "#" + element.getMethodName();
-        }
-        catch (ArrayIndexOutOfBoundsException e
-        ){
+
+        //******************* Best practice
+        StackTraceElement[] stackTraceElements = new Throwable().getStackTrace();
+        if (stackTraceElements.length >= 3)
+            return stackTraceElements[2].getClassName() + "#" + stackTraceElements[2].getMethodName()
+                    + "#" + stackTraceElements[2].getFileName() +"#" + stackTraceElements[2].getLineNumber()  ;
+        else
             return null;
-        }
-
     }
-
 
 
 //    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
@@ -59,4 +55,4 @@ public class test_4_2 {
 //    }
 
 
-    }
+}

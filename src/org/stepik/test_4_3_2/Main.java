@@ -9,7 +9,14 @@ public class Main {
 
     public static void main(String[] args) {
 
+        long start = System.nanoTime();
+        // поиск смысла жизни ...
+        int a = 12;
+        String s = String.valueOf(a);
 
+        long finish = System.nanoTime();
+        long timeConsumedMillis = finish - start;
+        System.out.println(timeConsumedMillis);
     }
 
     public static class UntrustworthyMailWorker implements MailService {
