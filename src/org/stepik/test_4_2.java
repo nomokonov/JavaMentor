@@ -28,7 +28,7 @@ public class test_4_2 {
         StackTraceElement[] stackTraceElements = new Throwable().getStackTrace();
         if (stackTraceElements.length >= 3)
             return stackTraceElements[2].getClassName() + "#" + stackTraceElements[2].getMethodName()
-                    + "#" + stackTraceElements[2].getFileName() +"#" + stackTraceElements[2].getLineNumber()  ;
+                    + "#" + stackTraceElements[2].getFileName() + "#" + stackTraceElements[2].getLineNumber();
         else
             return null;
     }
@@ -53,6 +53,53 @@ public class test_4_2 {
 //            }
 //        }
 //    }
+    // *** After Svetlana reviews
+
+    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
+        RobotConnection robotConection;
+        for (int i = 0; i < 3; i++) {
+            try {
+                robotConection = robotConnectionManager.getConnection();
+                try {
+                    robotConection.moveRobotTo(toX, toY);
+                    return;
+                } catch (RobotConnectionException e) {
+                //ignore
+                } finally {
+                    try {
+                        robotConection.close();
+                    } catch (RobotConnectionException e) {
+                    }
+                }
+            } catch (RobotConnectionException e) {
+                //ignore
+            }
+        }
+        throw new RobotConnectionException("Cannot connect");
+    }
 
 
+}
+
+class RobotConnectionException extends RuntimeException {
+
+    public RobotConnectionException(String message) {
+        super(message);
+
+    }
+
+    public RobotConnectionException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+
+interface RobotConnection extends AutoCloseable {
+    void moveRobotTo(int x, int y);
+
+    @Override
+    void close();
+}
+
+interface RobotConnectionManager {
+    RobotConnection getConnection();
 }
