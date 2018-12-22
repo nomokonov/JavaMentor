@@ -56,29 +56,23 @@ public class test_4_2 {
     // *** After Svetlana reviews
 
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
-        RobotConnection robotConection;
+        RobotConnection robotConection = null;
         for (int i = 0; i < 3; i++) {
             try {
                 robotConection = robotConnectionManager.getConnection();
-                try {
-                    robotConection.moveRobotTo(toX, toY);
-                    return;
-                } catch (RobotConnectionException e) {
-                //ignore
-                } finally {
-                    try {
-                        robotConection.close();
-                    } catch (RobotConnectionException e) {
-                    }
-                }
+                robotConection.moveRobotTo(toX, toY);
+                return;
             } catch (RobotConnectionException e) {
                 //ignore
+            }finally {
+                try {
+                    robotConection.close();
+                } catch (Exception ignored) {
+                }
             }
         }
         throw new RobotConnectionException("Cannot connect");
     }
-
-
 }
 
 class RobotConnectionException extends RuntimeException {
