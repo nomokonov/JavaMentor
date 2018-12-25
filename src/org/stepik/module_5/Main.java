@@ -78,7 +78,7 @@ public class Main {
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
         StringBuffer stringBuffer = new StringBuffer();
-
+        return stringBuffer.toString();
     }
 }
 
