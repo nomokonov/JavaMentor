@@ -1,5 +1,5 @@
 // 3.5.2
-package org.stepik;
+package org.stepik.module_3;
 
 public class AsciiCharSequence implements CharSequence{
     private final  byte[] array;

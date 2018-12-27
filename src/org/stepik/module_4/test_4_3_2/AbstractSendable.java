@@ -1,4 +1,4 @@
-package org.stepik.test_4_3_2;
+package org.stepik.module_4.test_4_3_2;
 
 public class AbstractSendable implements Sendable {
     protected final String from;

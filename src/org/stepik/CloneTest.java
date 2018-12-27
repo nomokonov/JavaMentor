@@ -1,6 +1,7 @@
 package org.stepik;
 
 import java.io.*;
+import java.sql.Time;
 
 public class CloneTest {
     static class Person implements Serializable {
@@ -45,6 +46,9 @@ public class CloneTest {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+        long nanoTime = System.nanoTime();
+
         Car car = new Car("Green");
         Person person = new Person(car, 25, "Mike");
         //Clone with Serialization
@@ -60,6 +64,7 @@ public class CloneTest {
         clonePersone = (Person) ios.readObject();
         byte[] byteArr = new byte[bos.toByteArray().length];
         byteArrayInputStream.read(byteArr);
+        System.out.println(System.nanoTime() - nanoTime);
 
         System.out.println(person);
         System.out.println(clonePersone);
@@ -69,5 +74,7 @@ public class CloneTest {
         clonePersone.car.color = "red";
         System.out.println(person);
         System.out.println(clonePersone);
+
+
     }
 }

@@ -1,4 +1,4 @@
-package org.stepik;
+package org.stepik.module_4;
 
 public class test_4_1 {
 

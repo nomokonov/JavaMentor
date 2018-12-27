@@ -1,4 +1,4 @@
-package org.stepik;
+package org.stepik.module_4;
 
 import java.util.logging.*;
 

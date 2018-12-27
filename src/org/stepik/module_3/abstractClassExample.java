@@ -1,4 +1,4 @@
-package org.stepik;
+package org.stepik.module_3;
 
 public abstract class abstractClassExample {
     protected static int maxValue;

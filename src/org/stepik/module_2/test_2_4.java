@@ -1,4 +1,4 @@
-package org.stepik;
+package org.stepik.module_2;
 
 import java.math.BigInteger;
 import java.util.Arrays;

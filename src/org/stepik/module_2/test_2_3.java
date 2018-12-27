@@ -1,4 +1,4 @@
-package org.stepik;
+package org.stepik.module_2;
 
 public class test_2_3 {
     public static void main(String[] args) {

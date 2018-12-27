@@ -1,4 +1,4 @@
-package org.stepik;
+package org.stepik.module_3;
 
 import java.math.BigDecimal;
 

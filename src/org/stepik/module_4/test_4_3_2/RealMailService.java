@@ -1,4 +1,4 @@
-package org.stepik.test_4_3_2;
+package org.stepik.module_4.test_4_3_2;
 /*
 Класс, в котором скрыта логика настоящей почты
 */
