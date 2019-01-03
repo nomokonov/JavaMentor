@@ -3,12 +3,15 @@ package org.stepik.module_5;
 import com.sun.org.apache.xml.internal.resolver.readers.ExtendedXMLCatalogReader;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Objects;
 
 public class Test_5_4 {
 
 
     public static void main(String[] args) {
+        System.out.println(Paths.get("."));
      Animal[] animals = {new Animal("A1"),new Animal("A2")};
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         try (ObjectOutputStream oos = new ObjectOutputStream(outputStream)) {

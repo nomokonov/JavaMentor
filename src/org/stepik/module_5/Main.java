@@ -35,15 +35,12 @@ public class Main {
                        System.out.write(buffer);
                        outputStream.write(buffer);
                    }
-
                    buffer = data;
                }
-
                if ( data < 0 ) {
                    notStop = false;
                }
             }
-
         } catch (IOException e){
 
         }
