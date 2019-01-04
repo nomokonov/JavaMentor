@@ -1,4 +1,4 @@
-package org.stepik.module_6.theory;
+package org.stepik.module_6;
 
 import java.util.Objects;
 import java.util.Optional;
