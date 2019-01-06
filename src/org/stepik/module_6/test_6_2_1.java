@@ -3,6 +3,8 @@ package org.stepik.module_6;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.ObjDoubleConsumer;
+
 
 public class test_6_2_1 {
     public static void main(String[] args) {
