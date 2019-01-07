@@ -3,6 +3,7 @@ package src.org.stepik.module_6;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class test_6_3_1 {
     public static void main(String[] args) {
@@ -22,4 +23,5 @@ public class test_6_3_1 {
         return (x) -> condition.test(x) ? ifTrue.apply(x) : ifFalse.apply(x);
 
     }
+
 }
