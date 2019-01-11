@@ -24,11 +24,11 @@ public class Main {
                 .map(String::toLowerCase)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()
-                .sorted(Comparator.comparing(Map.Entry::getValue,Comparator.reverseOrder()).thenComparing(Comparator.comparing(Map.Entry::getKey)))
-//                .sorted(c1.thenComparing(c2))
-
+//                .sorted(Comparator.comparing(Map.Entry::getValue,Comparator.reverseOrder()).thenComparing(Comparator.comparing(Map.Entry::getKey)))
+                .sorted(c1.thenComparing(c2))
+                .map(o -> o.getKey())
                 .limit(10)
-                .forEach(s -> System.out.println(s.getKey()+ " - " + s.getValue()));
+                .forEach(System.out::println);
 
 
 //        Comparator<Map.Entry<String, Integer>> c1 = Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder());
