@@ -38,6 +38,7 @@ public class Main {
 //        Stream<String> stream = in.lines();
 //        stream.flatMap(x -> Arrays.stream(x.split("\\W+")))
 //                .map(String::toLowerCase)
+
 //                .collect(Collectors.groupingBy(x -> x, Collectors.summingInt(p -> 1)))
 //                .entrySet()
 //                .stream()
