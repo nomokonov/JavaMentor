@@ -9,6 +9,13 @@ import java.util.stream.IntStream;
 
 public class test_6_4 {
     public static void main(String[] args) {
+//        int x = 1;
+//        System.out.println(x);
+//        System.out.println(x / 10 % 10 );
+//        System.out.println((x)/100 % 10);
+//        System.out.println((x)/1000 % 10);
+//
+//        System.out.println((x / 10 % 10 )+((x / 100 % 10) * 10) + (x / 1000 % 10) * 100 );
         IntStream is = pseudoRandomStream(13);
         is.forEach(System.out::println);
 
@@ -25,25 +32,32 @@ public class test_6_4 {
     }
 
     //6.4.1
+    // bad
+//    public static IntStream pseudoRandomStream(int seed) {
+//        IntStream is = IntStream.iterate(seed, (x) -> {
+//
+//            List<Integer> numbersArrays = new ArrayList<>();
+//            for (int a = x * x; a > 0; a /= 10){
+//                numbersArrays.add(a % 10);
+//            }
+//            int res = 0;
+//            int count = 0;
+//            Iterator<Integer> iter = numbersArrays.iterator();
+//            if ( iter.hasNext() ) {
+//                iter.next();
+//            }
+//            while (iter.hasNext() && count < 3) {
+//                res += iter.next() * (Math.pow(10, count++));
+//            }
+//            return Integer.valueOf(res);
+//        });
+//
+//        return is; // your implementation here
+//    }
+
+    // OR ACCEPT
     public static IntStream pseudoRandomStream(int seed) {
-        IntStream is = IntStream.iterate(seed, (x) -> {
-
-            List<Integer> numbersArrays = new ArrayList<>();
-            for (int a = x * x; a > 0; a /= 10){
-                numbersArrays.add(a % 10);
-            }
-            int res = 0;
-            int count = 0;
-            Iterator<Integer> iter = numbersArrays.iterator();
-            if ( iter.hasNext() ) {
-                iter.next();
-            }
-            while (iter.hasNext() && count < 3) {
-                res += iter.next() * (Math.pow(10, count++));
-            }
-            return Integer.valueOf(res);
-        });
-
+        IntStream is = IntStream.iterate(seed, x ->  ((x * x) / 10 % 10 )+(((x * x) / 100 % 10) * 10) + ((x * x) / 1000 % 10) * 100   );
         return is; // your implementation here
     }
 }
