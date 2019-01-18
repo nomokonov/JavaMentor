@@ -1,9 +1,7 @@
 package org.stepik.module_6;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.ObjDoubleConsumer;
 
 
 public class test_6_2_1 {
@@ -23,18 +21,11 @@ public class test_6_2_1 {
     }
 
     public static <T> Set<T> symmetricDifference(Set<? extends T> set1, Set<? extends T> set2) {
-        HashSet<T> hastSet1 = new HashSet<>();
-        HashSet<T> hastSet2 = new HashSet<>();
-        HashSet<T> intersectionSet = new HashSet<>();
-        hastSet1.addAll(set1);
-        hastSet2.addAll(set2);
-        intersectionSet.addAll(set1);
-        intersectionSet.retainAll(hastSet2); //Оставим только пересечение множеств и "отнимем" из исходных сетов
-        hastSet1.removeAll(intersectionSet);
-        hastSet2.removeAll(intersectionSet);
-        intersectionSet.clear();
-        intersectionSet.addAll(hastSet1);
-        intersectionSet.addAll(hastSet2);
-        return intersectionSet;
+        HashSet<T> hashSet1 = new HashSet<>(set1);
+        HashSet<T> hashSet2 = new HashSet<>(set2);
+        hashSet1.removeAll(set2);
+        hashSet2.removeAll(set1);
+        hashSet1.addAll(hashSet2);
+        return hashSet1;
     }
 }

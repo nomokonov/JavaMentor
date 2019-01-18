@@ -7,11 +7,13 @@ import java.util.stream.Stream;
 
 public class test_6_3_1 {
     public static void main(String[] args) {
-        Predicate<Object> condition = Objects::isNull;
-        Function<Object, Integer> ifTrue = obj -> 0;
+        Predicate<Object> condition = Objects::nonNull;
+        Function<Object, Integer> ifTrue = obj -> 123;
         Function<CharSequence, Integer> ifFalse = CharSequence::length;
+        long starttime = System.nanoTime();
         Function<String, Integer> safeStringLength = ternaryOperator(condition, ifTrue, ifFalse);
         System.out.println(safeStringLength.apply("asd"));
+        System.out.println(System.nanoTime() - starttime);
     }
 
 
