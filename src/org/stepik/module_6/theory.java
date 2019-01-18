@@ -49,7 +49,7 @@ public class theory {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            Pair<?, ?> pair = (Pair<?, ?>) o;
+            Pair<T, S> pair = (Pair<T, S>) o;
             return Objects.equals(first, pair.first) &&
                     Objects.equals(second, pair.second);
         }
