@@ -9,17 +9,22 @@ import java.util.stream.IntStream;
 
 public class test_6_4 {
     public static void main(String[] args) {
-//        int x = 1;
-//        System.out.println(x);
+        long startTimer = System.nanoTime();
+        int x = 12345;
+        System.out.println(x);
 //        System.out.println(x / 10 % 10 );
 //        System.out.println((x)/100 % 10);
 //        System.out.println((x)/1000 % 10);
 //
-//        System.out.println((x / 10 % 10 )+((x / 100 % 10) * 10) + (x / 1000 % 10) * 100 );
+        System.out.println(x /= 10);
+        System.out.println(x % 1000);
+        System.out.println(x % 1000);
+
+
+        System.out.println((x / 10) % 1000);
         IntStream is = pseudoRandomStream(13);
         is.forEach(System.out::println);
 
-        long startTimer = System.nanoTime();
 
         System.out.println(System.nanoTime() - startTimer);
 
@@ -57,7 +62,6 @@ public class test_6_4 {
 
     // OR ACCEPT
     public static IntStream pseudoRandomStream(int seed) {
-        IntStream is = IntStream.iterate(seed, x ->  ((x * x) / 10 % 10 )+(((x * x) / 100 % 10) * 10) + ((x * x) / 1000 % 10) * 100   );
-        return is; // your implementation here
+        return IntStream.iterate(seed, x -> ((x * x) / 10) % 1000);
     }
 }

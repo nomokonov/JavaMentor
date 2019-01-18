@@ -1,6 +1,5 @@
 package org.stepik.module_6.MyTests;
 
-import java.io.BufferedReader;
 import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.stream.IntStream;
