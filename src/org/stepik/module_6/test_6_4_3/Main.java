@@ -13,8 +13,8 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
 
-        Comparator<Map.Entry<String, Long>> c1 = Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder());
-        Comparator<Map.Entry<String, Long>> c2 = Comparator.comparing(Map.Entry::getKey);
+//        Comparator<Map.Entry<String, Long>> c1 = Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder());
+//        Comparator<Map.Entry<String, Long>> c2 = Comparator.comparing(Map.Entry::getKey);
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         Stream<String> stream = bufferedReader.lines();
@@ -24,8 +24,9 @@ public class Main {
                 .map(String::toLowerCase)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()
-//                .sorted(Comparator.comparing(Map.Entry::getValue,Comparator.reverseOrder()).thenComparing(Comparator.comparing(Map.Entry::getKey)))
-                .sorted(c1.thenComparing(c2))
+//                .sorted(c1.thenComparing(c2))  // так всетаки красивее
+                .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .map(o -> o.getKey())
                 .limit(10)
                 .forEach(System.out::println);
