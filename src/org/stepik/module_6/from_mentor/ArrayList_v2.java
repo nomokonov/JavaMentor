@@ -13,6 +13,10 @@ public class ArrayList_v2<T> {
         this(0);
     }
 
+    public int size() {
+        return size;
+    }
+
     public T get(int index) {
         return (T) array_object[index];
     }
@@ -28,12 +32,17 @@ public class ArrayList_v2<T> {
     }
 
     public T remove(int index) {
+        Object[] new_arr = new Object[size-1];
         T oldValue = (T) array_object[index];
         int numMoved = size - index - 1;
         if (numMoved > 0){
             System.arraycopy(array_object, index+1, array_object, index,
                     numMoved);
-            array_object[--size] = null;
+            System.arraycopy(array_object, 0, new_arr, 0,
+                    --size);
+            array_object = new_arr;
+            new_arr = null;
+            //array_object[--size] = null;
         }
         return oldValue;
     }
