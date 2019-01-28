@@ -130,6 +130,7 @@ public class test {
                 }
             };
             this.map = map;
+            HashSet<Integer> set =;
         }
 
         public Map<String, List<T>> getMailBox() {
