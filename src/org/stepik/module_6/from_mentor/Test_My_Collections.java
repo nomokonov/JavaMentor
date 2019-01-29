@@ -40,5 +40,11 @@ public class Test_My_Collections {
         linkedList_v2.add(2);
         linkedList_v2.add(3);
 
+        linkedList_v2.remove(1);
+
+        for (int i = 0; i < linkedList_v2.size(); i++) {
+            System.out.println(linkedList_v2.get(i));
+        }
+
     }
 }

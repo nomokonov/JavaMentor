@@ -7,16 +7,45 @@ public class LinkedList_v2<T> {
 
     //    Добавляем вслед за последним
     public void add(T element) {
-        final Part<T> l = last;
-        final Part<T> newNode = new Part<>(l, element, null);
-        last = newNode;
+        Part<T> l = last;
+        Part<T> newElement = new Part<>(l, element, null);
+        last = newElement;
         if (l == null)
-            first = newNode;
+            first = newElement;
         else
-            l.next = newNode;
+            l.next = newElement;
         size++;
     }
 
+    public T get(int index) {
+        Part<T> element = first;
+        int  count = 0;
+        if (size < index  ){
+            return null;
+        }
+        while ( count != index){
+            element = element.next;
+            count++;
+        }
+        return  element.element;
+    }
+
+    public void remove(int index){
+        Part<T> element = first;
+        int count = 0;
+        while ( count != index){
+            element = element.next;
+            count++;
+        }
+        element.next.prev = element.prev;
+        element.prev.next = element.next;
+        element = null;
+        size--;
+    }
+
+    public int size(){
+        return size;
+    }
 
 
     private static class Part<T> {
@@ -29,24 +58,11 @@ public class LinkedList_v2<T> {
             this.next = next;
             this.prev = prev;
         }
-
-        public Part<T> getNext() {
-            return next;
-        }
-
-        public void setNext(Part<T> next) {
-            this.next = next;
-        }
-
-        public Part<T> getPrev() {
-            return prev;
-        }
-
-        public void setPrev(Part<T> prev) {
-            this.prev = prev;
-        }
     }
+
 }
+
+
 
 
 
