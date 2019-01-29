@@ -20,7 +20,7 @@ public class LinkedList_v2<T> {
     public T get(int index) {
         Part<T> element = first;
         int  count = 0;
-        if (size < index  ){
+        if ( index < 0 || size < index  ){
             return null;
         }
         while ( count != index){
